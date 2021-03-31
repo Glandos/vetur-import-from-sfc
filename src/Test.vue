@@ -1,13 +1,23 @@
 <template>
   <div>
-    {{ fo }}
+    {{ foo }}
   </div>
 </template>
 
-<script>
-import * as _ from 'lodash'
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-export default {
-  props: ['foo', 'bar']
+@Component
+export default class Test extends Vue {
+  foo = 1
+
+  get innerFoo () {
+    return this.foo
+  }
+
+  printFoo () {
+    console.log(this.foo, "I'm foo from Test")
+  }
 }
 </script>
